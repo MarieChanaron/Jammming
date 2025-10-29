@@ -1,34 +1,38 @@
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import './styles/App.css'
+
+import Heading from './components/Heading.jsx';
+import SearchBar from './components/SearchBar.jsx';
+import SearchResults from './components/SearchResults.jsx';
+import Playlist from './components/Playlist.jsx';
+import TrackList from './components/Tracklist.jsx';
 
 function App() {
-  const [count, setCount] = useState(0)
+  
+  const [ tracks, setTracks ] = useState(
+    [
+      {
+        title: "song1",
+        artist: "artist1",
+        album: "album1"
+      }, {
+        title: "song2",
+        artist: "artist2",
+        album: "album2"
+      }, {
+        title: "song3",
+        artist: "artist3",
+        album: "album3"
+      }
+    ]
+  );
 
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <div id="content">
+      <Heading />
+      <SearchBar />
+      <SearchResults />
+    </div>
   )
 }
 

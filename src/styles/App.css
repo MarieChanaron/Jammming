@@ -1,0 +1,81 @@
+/* Header */
+
+#heading {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  background-color: var(--dark-blue);
+  height: var(--height-unit);
+  display: flex;
+  align-content: center;
+  align-items: center;
+  justify-content: center;
+}
+
+#heading h1 {
+  color: white;
+}
+
+
+/* Searchbar Form */
+
+#searchbar {
+  height: calc(3 * var(--height-unit));
+  display: flex;
+  align-items: center;
+}
+
+#searchbar * {
+  display: block;
+  margin: auto;
+}
+
+#searchbar input[type="submit"] {
+  margin-top: 50px;
+  background-color: var(--dark-blue);
+  color: white;
+  border: none;
+  padding: 8px 33px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 600;
+  box-shadow: 2px 4px 4px #00000080;
+  cursor: pointer;
+}
+
+#searchbar input[type="text"] {
+  padding: 8px 4px;
+  width: 300px;
+  text-align: center;
+}
+
+
+/* Search results */
+
+#search-results {
+  display: flex;
+  justify-content: space-evenly;
+  --spacing: 4%;
+  padding: 0 var(--spacing);
+  column-gap: var(--spacing);
+  height: calc(100vh - 4 * var(--height-unit));
+}
+
+/* Tracklist */
+
+#tracklist {
+  width: 60%;
+  height: 100%;
+  background-color: #000934c9;
+}
+
+/* Playlist */
+
+#playlist {
+  width: 40%;
+  height: 100%;
+  background-color: #000934c9;
+}
+

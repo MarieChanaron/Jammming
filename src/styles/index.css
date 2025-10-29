@@ -1,0 +1,24 @@
+:root {
+  --dark-blue: #000934;
+  --height-unit: 80px;
+}
+
+#root {
+  background: rgba(191, 25, 209, 0.60) url('../assets/background.jpg');
+  background-blend-mode: multiply;
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  box-sizing: border-box;
+  overflow-y: hidden;
+  padding-top: var(--height-unit);
+}
+
+body {
+  font-family: 'Roboto', 'Arial', sans-serif;
+}
+
+h1 {
+  font-size: 3em;
+}
+
