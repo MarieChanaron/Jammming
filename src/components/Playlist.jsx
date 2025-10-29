@@ -1,10 +1,15 @@
 import Track from './Track';
 
 
-function Playlist({playlist}) {
+function Playlist({playlist, removeTrack}) {
+
+    const handleClick = e => {
+        const index = +e.target.closest('table').getAttribute('index');
+        removeTrack(index);
+    }
 
     const playlistElements = playlist.map(
-        (track, index) => <Track track={{...track, id: index}} key={index} icon="-" />
+        (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="-" />
     );
 
     return (

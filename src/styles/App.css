@@ -115,6 +115,7 @@ td.pointer {
   font-weight: 600;
   margin-bottom: 10px;
   color: white;
+  text-overflow: ellipsis;
 }
 
 #playlist button {

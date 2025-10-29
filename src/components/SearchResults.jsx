@@ -31,7 +31,9 @@ function SearchResults() {
     }
 
     const removeTrack = index => {
-
+        const track = playlist[index];
+        setPlaylist(prev => prev.filter((t, i) => i !== index));
+        setTrackList(prev => [track, ...prev]);
     }
     
     return (
