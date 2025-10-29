@@ -1,6 +1,7 @@
 :root {
   --dark-blue: #000934;
   --height-unit: 80px;
+  --table-spacing: 8px;
 }
 
 #root {
@@ -8,10 +9,13 @@
   background-blend-mode: multiply;
   background-size: cover;
   background-position: center;
+
   height: 100vh;
   box-sizing: border-box;
   overflow-y: hidden;
   padding-top: var(--height-unit);
+
+  color: white;
 }
 
 body {
@@ -20,5 +24,16 @@ body {
 
 h1 {
   font-size: 3em;
+}
+
+h2 {
+    font-size: 1.5em;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+h5 {
+  font-size: 1em;
+  font-weight: 600;
 }
 

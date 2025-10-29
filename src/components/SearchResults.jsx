@@ -1,11 +1,11 @@
 import Playlist from './Playlist.jsx';
 import TrackList from './Tracklist.jsx';
 
-function SearchResults() {
+function SearchResults({ trackList }) {
     
     return (
         <div id="search-results">
-            <TrackList />
+            <TrackList trackList={trackList} />
             <Playlist />
         </div>
     );

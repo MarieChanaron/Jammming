@@ -9,7 +9,7 @@ import TrackList from './components/Tracklist.jsx';
 
 function App() {
   
-  const [ tracks, setTracks ] = useState(
+  const [ trackList, setTrackList ] = useState(
     [
       {
         title: "song1",
@@ -31,7 +31,7 @@ function App() {
     <div id="content">
       <Heading />
       <SearchBar />
-      <SearchResults />
+      <SearchResults trackList={trackList} />
     </div>
   )
 }
