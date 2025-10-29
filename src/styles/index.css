@@ -37,3 +37,19 @@ h5 {
   font-weight: 600;
 }
 
+
+
+input[type="submit"],
+button {
+  margin-top: 50px;
+  background-color: var(--dark-blue);
+  color: white;
+  border: none;
+  padding: 8px 33px;
+  border-radius: 50px;
+  text-transform: uppercase;
+  font-size: 0.6em;
+  font-weight: 600;
+  box-shadow: 2px 4px 4px #00000080;
+  cursor: pointer;
+}

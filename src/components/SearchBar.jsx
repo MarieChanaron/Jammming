@@ -1,4 +1,5 @@
 function SearchBar() {
+
     return (
         <div id="searchbar">
             <form>

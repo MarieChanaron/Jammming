@@ -1,9 +1,14 @@
 import Track from "./Track";
 
-function Tracklist({ trackList }) {
+function Tracklist({ trackList, addTrack }) {
+
+    const handleClick = e => {
+        const index = +e.target.closest('table').getAttribute('index');
+        addTrack(index);
+    }
 
     const trackElements = trackList.map(
-        track => <Track track={track}/>
+        (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="+" />
     );
 
     return (
