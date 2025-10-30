@@ -24,4 +24,4 @@ dist-ssr
 *.sw?
 
 # Project files
-api/credentials.js
+credentials.js
