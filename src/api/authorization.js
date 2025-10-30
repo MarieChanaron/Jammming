@@ -16,11 +16,13 @@ const getToken = () => {
     'Content-Type': 'application/x-www-form-urlencoded'
   }
 
-  fetch(URL, {
+  const options = {
     method: 'POST',
     headers: headers,
     body: body.toString()
-  })
+  }
+
+  return fetch(URL, options)
   .then(response => {
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
@@ -33,46 +35,6 @@ const getToken = () => {
 
 };
 
-const promise = new Promise((success, error) => getToken());
-promise.then(r=>console.log(r));
-
-// const tokenPromise = new Promise((onSuccess, onError) => {
-//   getToken()
-//     .then(resp => onSuccess(resp))
-//     .catch(message => onError(message))
-// });
-// tokenPromise.then
-
-console.log(await getToken());
-
-// Construct the request body
-// const body = new URLSearchParams({
-//   grant_type: 'client_credentials',
-//   client_id: `${CLIENT_ID}`,
-//   client_secret: `${CLIENT_SECRET}`
-// });
+export default { getToken };
 
 
-
-/*const fetchTokenPromise = fetch(URL, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/x-www-form-urlencoded'
-  },
-  body: body.toString()
-});
-
-fetchTokenPromise
-    .then(response => {
-        if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .then(data => {
-        console.log('Access token response:', data);
-    })
-    .catch(error => {
-        console.error('Error fetching token:', error);
-    });
-*/

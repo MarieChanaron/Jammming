@@ -5,7 +5,7 @@ import Header from './components/Header.jsx';
 import SearchBar from './components/SearchBar.jsx';
 import SearchResults from './components/SearchResults.jsx';
 
-import './api/authorization.js';
+import './api/search.js';
 
 
 function App() {
