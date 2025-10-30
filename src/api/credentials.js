@@ -1,0 +1,5 @@
+// Credentials
+const CLIENT_ID = "03c28c476ec04dd0932e8f5e26085c0e";
+const CLIENT_SECRET = "71608b0de954451998632fb101ea7e25";
+
+export default {CLIENT_ID, CLIENT_SECRET};
