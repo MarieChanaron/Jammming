@@ -1,7 +1,10 @@
+import { useState } from 'react';
 import Track from './Track';
 
 
 function Playlist({playlist, removeTrack}) {
+
+    const [ playlistName, setPlaylistName ] = useState();
 
     const handleClick = e => {
         const index = +e.target.closest('table').getAttribute('index');
@@ -9,14 +12,30 @@ function Playlist({playlist, removeTrack}) {
     }
 
     const playlistElements = playlist.map(
-        (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="-" />
+        (track, index) => <Track 
+            track={{...track, id: index}} 
+            key={index} 
+            onClick={handleClick} 
+            icon="-" 
+        />
     );
+
+    const handleSave = () => {
+        const uriList = playlist.map(el => el.uri);
+        //saveToSpotify(uriList);
+        setPlaylistName('');
+    }
 
     return (
         <div id="playlist">
-            <input type="text" placeholder="Choose the name of your new playlist" />
+            <input 
+                type="text" 
+                placeholder="Playlist name" 
+                value={playlistName} 
+                onChange={({target}) => setPlaylistName(target.value)} 
+            />
             {playlistElements}
-            <button>Save to Spotify</button>
+            <button onClick = {handleSave}>Save to Spotify</button>
         </div>
     );
 }

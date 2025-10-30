@@ -1,4 +1,4 @@
-function Heading() {
+function Header() {
     return (
         <div id="heading">
             <h1><span>Ja</span><span style={{color: "#8e40e2"}}>mmm</span><span>ing</span></h1>
@@ -6,4 +6,4 @@ function Heading() {
     );
 }
 
-export default Heading;
+export default Header;

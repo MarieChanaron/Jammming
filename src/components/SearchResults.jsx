@@ -9,15 +9,19 @@ function SearchResults() {
         {
             title: "song1",
             artist: "artist1",
-            album: "album1"
+            album: "album1",
+            uri:""
         }, {
             title: "song2",
             artist: "artist2",
-            album: "album2"
+            album: "album2",
+            uri: ""
         }, {
+            
             title: "song3",
             artist: "artist3",
-            album: "album3"
+            album: "album3",
+            uri: ""
         }
     ]);
 
