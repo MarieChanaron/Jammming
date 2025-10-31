@@ -4,36 +4,40 @@ const { getToken } = authorization;
 
 const fetchData = (keywords, type) => {
 
-    getToken()
-    .then(data => {
-        const params = new URLSearchParams({
-            q: keywords,
-            type: type,
-            limit: 20,
-            offset: 0
-        });
+    return getToken()
 
-        let URL = `https://api.spotify.com/v1/search?${params.toString()}`;
+        .then(data => {
+            const params = new URLSearchParams({
+                q: keywords,
+                type: type,
+                limit: 20,
+                offset: 0
+            });
 
-        const options = {
-            headers: {
-                Authorization: `Bearer ${data['access_token']}`
+            let URL = `https://api.spotify.com/v1/search?${params.toString()}`;
+
+            const options = {
+                headers: {
+                    Authorization: `Bearer ${data['access_token']}`
+                }
             }
-        }
 
-        return fetch(URL, options);
+            return fetch(URL, options);
+            
+        })
+
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+        })
+
+        .catch(error => console.log(error));
         
-    })
-    .then(response => {
-        if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-        }
-        return response.json();
-    })
-    .catch(error => console.log(error));
 }
 
-fetchData('song', 'track');
+export default { fetchData };
 
 
 

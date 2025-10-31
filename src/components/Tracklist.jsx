@@ -1,3 +1,5 @@
+import { useEffect } from 'react';
+
 import Track from "./Track";
 
 function Tracklist({ trackList, addTrack }) {
@@ -7,14 +9,15 @@ function Tracklist({ trackList, addTrack }) {
         addTrack(index);
     }
 
-    const trackElements = trackList.map(
-        (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="+" />
-    );
 
     return (
         <div id="tracklist">
             <h2>Results</h2>
-            {trackElements}
+            {
+                trackList.map(
+                    (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="+" />
+                )
+            }
         </div>
     );
 

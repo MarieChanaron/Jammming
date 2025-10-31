@@ -1,32 +1,48 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 import Playlist from './Playlist.jsx';
 import TrackList from './Tracklist.jsx';
 
-function SearchResults() {
+import API from '../api/search';
 
-    const [ trackList, setTrackList ] = useState([
-        {
-            title: "song1",
-            artist: "artist1",
-            album: "album1",
-            uri:""
-        }, {
-            title: "song2",
-            artist: "artist2",
-            album: "album2",
-            uri: ""
-        }, {
-            
-            title: "song3",
-            artist: "artist3",
-            album: "album3",
-            uri: ""
-        }
-    ]);
 
+// Process and format the data received from the API
+
+const mapThroughData = data => {
+    const items = data.tracks.items;
+
+    const tracks = items.map(item => {
+        return {
+            title: item.name,
+            artist: item.artists.map(artist => artist.name).join(', '),
+            album: item.album.name,
+            URI: item.href
+        };
+    });
+
+    return tracks
+}
+
+
+
+function SearchResults({ keywords, formSubmitted }) {
+
+    const [ trackList, setTrackList ] = useState([]);
     const [ playlist, setPlaylist ] = useState([]);
 
+
+    // Fetch Data after click
+    
+    useEffect(() => {
+        if (!formSubmitted) return;
+      
+        API.fetchData(keywords, 'track')
+        .then(data => setTrackList(mapThroughData(data)));
+
+    }, [formSubmitted]);
+
+
+    // Add a track and remove a track from the playlist
 
     const addTrack = index => {
         const track = trackList[index];
@@ -39,6 +55,7 @@ function SearchResults() {
         setPlaylist(prev => prev.filter((t, i) => i !== index));
         setTrackList(prev => [track, ...prev]);
     }
+
     
     return (
         <div id="search-results">

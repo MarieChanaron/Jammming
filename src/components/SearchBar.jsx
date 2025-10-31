@@ -1,23 +1,16 @@
-import { useState } from 'react';
+function SearchBar(props) {
 
-function SearchBar() {
-
-    const [ keywords, setKeywords ] = useState('');
-
-    const handleSubmit = () => {
-        // Research through the API
-        setKeywords('');
-    }
-
+    const { onSubmit, onChange, keywords } = props;
+    
     return (
         <div id="searchbar">
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={onSubmit}>
                 <input 
                     type="text" 
                     id="keywords" 
                     name="keywords" 
-                    value={keywords} 
-                    onChange={({ target }) => setKeywords(target.value)} 
+                    value={keywords}
+                    onChange={onChange} 
                 />
                 <input type="submit" value="Search" />
             </form>
