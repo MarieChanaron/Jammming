@@ -13,11 +13,17 @@ function Tracklist({ trackList, addTrack }) {
     return (
         <div id="tracklist">
             <h2>Results</h2>
-            {
-                trackList.map(
-                    (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="+" />
-                )
-            }
+
+            <table>
+                <tbody>
+                    {
+                        trackList.map(
+                            (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="+" />
+                        )
+                    }
+                </tbody>
+            </table>
+
         </div>
     );
 
