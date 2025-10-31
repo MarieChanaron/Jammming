@@ -34,7 +34,17 @@ function Playlist({playlist, removeTrack}) {
                 value={playlistName} 
                 onChange={({target}) => setPlaylistName(target.value)} 
             />
-            {playlistElements}
+
+            <table>
+                <tbody>
+                    {
+                        playlist.map(
+                            (track, index) => <Track track={{...track, id: index}} key={index} onClick={handleClick} icon="-" />
+                        )
+                    }
+                </tbody>
+            </table>
+
             <button onClick = {handleSave}>Save to Spotify</button>
         </div>
     );
